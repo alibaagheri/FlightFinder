@@ -1,19 +1,46 @@
 package com.northland.CheapFlightFinder.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Date;
 
+/**
+ * This class is used as data transfer object to store flight information.
+ * This information is used by other classes such as FlightService.
+ *
+ * @author  Ali Bagheri
+ *
+ */
+
+@ApiModel(description = "Flight data transfer object")
 public class FlightDto {
+    @ApiModelProperty(required = true, value = "destination")
     private String destination;
-    private Date departureDate;
-    private Date returnDate;
-    private double price
+    @ApiModelProperty(required = true, value = "departureDate")
+    private String departureDate;
+    @ApiModelProperty(required = true, value = "returnDate")
+    private String returnDate;
+    @ApiModelProperty(required = true, value = "price")
+    private double price;
+    @ApiModelProperty(required = true, value = "airline")
     private String airline;
+    @ApiModelProperty(required = true, value = "popularity")
     private int popularity;
 
     public FlightDto() {
     }
 
-    public FlightDto(String destination, Date departureDate, Date returnDate, double price, String airline, int popularity) {
+    /**
+     *
+     * @param destination of the flight
+     * @param departureDate of the flight
+     * @param returnDate of the flight
+     * @param price of the flight
+     * @param airline of the flight
+     * @param popularity of the flight
+     */
+    public FlightDto(String destination, String departureDate, String returnDate, double price, String airline, int popularity) {
         this.destination = destination;
         this.departureDate = departureDate;
         this.returnDate = returnDate;
@@ -30,19 +57,19 @@ public class FlightDto {
         this.destination = destination;
     }
 
-    public Date getDepartureDate() {
+    public String getDepartureDate() {
         return departureDate;
     }
 
-    public void setDepartureDate(Date departureDate) {
+    public void setDepartureDate(String departureDate) {
         this.departureDate = departureDate;
     }
 
-    public Date getReturnDate() {
+    public String getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(Date returnDate) {
+    public void setReturnDate(String returnDate) {
         this.returnDate = returnDate;
     }
 
@@ -69,4 +96,5 @@ public class FlightDto {
     public void setPopularity(int popularity) {
         this.popularity = popularity;
     }
+
 }

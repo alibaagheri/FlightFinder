@@ -1,10 +1,22 @@
 package com.northland.CheapFlightFinder.amadeus.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
+/**
+ *
+ * FlightList is used to get flight data from Amadeus web-service result.
+ *
+ * @author  Ali Bagheri
+ *
+ */
 public class FlightList {
+    @JsonProperty("origin")
     private String origin;
+    @JsonProperty("currency")
     private String currency;
+    @JsonProperty("results")
     private List<Flight> results;
 
     public FlightList() {

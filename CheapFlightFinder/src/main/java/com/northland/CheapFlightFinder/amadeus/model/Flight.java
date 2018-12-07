@@ -1,20 +1,32 @@
 package com.northland.CheapFlightFinder.amadeus.model;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ *
+ * Flight is used as part of FlightList class to get flight data from Amadeus web-service result.
+ *
+ * @author  Ali Bagheri
+ *
+ */
 public class Flight {
+    @JsonProperty("destination")
     private String destination;
-    private Date departureDate;
-    private Date returnDate;
-    private double price
+    @JsonProperty("departure_date")
+    private String departureDate;
+    @JsonProperty("return_date")
+    private String returnDate;
+    @JsonProperty("price")
+    private double price;
+    @JsonProperty("airline")
     private String airline;
+    @JsonProperty("popularity")
     private int popularity;
 
     public Flight() {
-
     }
 
-    public Flight(String destination, Date departureDate, Date returnDate, double price, String airline, int popularity) {
+    public Flight(String destination, String departureDate, String returnDate, double price, String airline, int popularity) {
         this.destination = destination;
         this.departureDate = departureDate;
         this.returnDate = returnDate;
@@ -31,19 +43,19 @@ public class Flight {
         this.destination = destination;
     }
 
-    public Date getDepartureDate() {
+    public String getDepartureDate() {
         return departureDate;
     }
 
-    public void setDepartureDate(Date departureDate) {
+    public void setDepartureDate(String departureDate) {
         this.departureDate = departureDate;
     }
 
-    public Date getReturnDate() {
+    public String getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(Date returnDate) {
+    public void setReturnDate(String returnDate) {
         this.returnDate = returnDate;
     }
 
